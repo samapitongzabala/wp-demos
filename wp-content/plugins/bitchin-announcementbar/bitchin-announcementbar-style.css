@@ -1,0 +1,37 @@
+#bitchin_announcement{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100px;
+	width: 100%;
+	background: crimson;
+	color: #FFF;
+	z-index:9999;
+	font-size: 24px;
+	text-transform: uppercase;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+#bitchin_announcement p{
+	width: 100%;
+}
+
+#bitchin_announcement a{
+	background: #000;
+	padding: 10px;
+	font-size: 16px;
+	margin-left: .5em;
+	text-decoration: none;
+	border-radius: 3px;
+}
+.admin-bar #bitchin_announcement{
+	top: 32px;
+}
+
+#bitchin_announcement a{
+color: #FFF;
+}

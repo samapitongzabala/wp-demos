@@ -1,0 +1,165 @@
+/*
+Theme Name: Asshole
+Author: Sam Z
+Description: It was for class shit
+Theme URI: eh
+License: GPLv3
+Author URI: http://samzabala.com
+Version: 0.1
+*/
+
+body{
+	background-color: #e1e1e1;
+	max-width: 60em;
+	margin: 0 auto;
+	font-family: calibri,sans-serif;
+	font-weight: 200;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#header,
+#footer,
+#content,
+#sidebar {
+	padding: 2.5%;
+	box-sizing: border-box;
+}
+
+a{
+	color: crimson;
+}
+
+article{
+	margin: 1em 0;
+	padding: 5%;
+	background: #eee;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+article .entry-content{
+	font-size: 1.125em;
+	line-height: 1.125;
+}
+
+article li{
+	margin-left: 1.5em;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-weight: 200;
+}
+
+.postmeta{
+	margin-top: 1em;
+	line-height: 1.5;
+
+}
+
+.postmeta li{
+	list-style: none;
+	margin-left: 0;
+}
+
+header{
+	min-height: 500px;
+	flex-wrap: wrap;
+	width: 100%;
+	flex: 1 0 100%;
+	background: #333;
+	color: #fff;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+
+	
+}
+
+h1 a{
+		color: #FFF;
+		font-size: 6em;
+		font-weight: 200;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	h2{
+		font-size: 2em;
+		margin-bottom: 1em;
+	}
+
+	nav{
+		padding: 1em;
+		width: 105%;
+		background: rgba(0,0,0,.75);
+	}
+
+	nav li{
+		line-height: 40px;
+		height: 40px;
+		margin: 0 .5em;
+		font-size: 1.125em;
+	}
+
+	nav li a{
+		color: #fff;
+		text-decoration: none;
+	}
+
+main{
+	background: #FFF;
+	padding: 2em;
+	width: 100%;
+}
+
+aside{
+	background: #eee;
+	width: 100%;
+	padding: 2em;
+}
+
+aside h3{
+	margin-top: 1em;
+	font-size: 1.5em;
+}
+
+aside li{
+	list-style: none;
+	line-height: 1.5;
+}
+
+#tags a{
+	margin-right: .5em;
+	line-height: 1.5;
+}
+
+@media screen and (min-width:600px) {
+	ul,
+	li {
+		margin: 0;
+		padding: 0;
+	}
+	.nav li {
+		display: inline-block;
+	}
+	#content {
+		float: left;
+		width: 70%;
+	}
+	#sidebar {
+		float: right;
+		width: 30%;
+	}
+	#footer {
+		clear: both;
+	}
+}

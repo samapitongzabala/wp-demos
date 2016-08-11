@@ -152,5 +152,5 @@ function bitchin_scripts(){
 	//  jQuery(document).ready(function ($){ 
 	//  //normal code 
 	//  })
-	wp_enqueue_script();
+	// wp_enqueue_script();
 }

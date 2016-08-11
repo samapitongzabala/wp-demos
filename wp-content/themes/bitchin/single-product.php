@@ -11,6 +11,12 @@
 					</h2>
 
 					<?php the_content(); ?>
+					<?php the_terms(get_the_id(),'brand','<h3>','<br>','</h3>'); ?>
+
+
+					<?php the_terms(get_the_id(),'feature','<h3>The features:</h3><ul><li>','</li><li>','</li></ul>'); ?>
+
+
 					
 					<?php 
 					the_meta();
@@ -30,6 +36,6 @@
 		</main>
 		<!-- end #content -->
 
-		<?php get_sidebar(); ?>
+		<?php get_sidebar('shop'); ?>
 
 		<?php get_footer(); ?>

@@ -1,7 +1,15 @@
 <?php get_header(); // include the header ?>
 		<main id="content">
+		<h2></h2>
 		<?php if(have_posts()){?>
-			<h2><?php post_type_archive_title() ?></h2>
+			<h2><?php if(is_tax('brand')){
+				echo 'Shit by';
+				}elseif(is_tax('feature')){
+					echo 'Shit that has the';
+				}else{
+					echo 'Shit that\'s';
+					} ?>
+				<?php single_term_title() ?></h2>
 			<?php  
 			while(have_posts()){
 				the_post();

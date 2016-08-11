@@ -78,7 +78,29 @@ function bitchin_menu_areas(){
  */
 function bitchin_pagination(){
 	echo '<div class="pagination">';
-			if(is_singular()){
+			if( is_singular('product')){
+				// echo 'More shit';
+				// previous_post_link('%link','%title');
+				// next_post_link('%link','%title');
+
+				//functions with get first usually dont echo
+				$next = get_next_post();
+				$prev = get_previous_post();
+				?>
+				
+				<?php if($prev){ ?>
+				<a href="<?php echo get_permalink($prev);?>">
+				<?php echo get_the_post_thumbnail($prev,'thumbnail') ?>
+				<h4><?php echo $prev->post_title; ?></h4></a>
+				<?php } ?>
+
+				<?php if($next){ ?>
+				<a href="<?php echo get_permalink($next);?>">
+				<?php echo get_the_post_thumbnail($next,'thumbnail') ?>
+				<h4><?php echo $next->post_title; ?></h4></a>
+				<?php } ?>
+			<?php
+			}elseif(is_singular()){
 				previous_post_link();
 				next_post_link();
 			}else{

@@ -24,7 +24,7 @@
 				</article>
 		<?php }
 
-		// bitchin_pagination(); shop appropro shit
+		bitchin_pagination(); //shop appropro shit
 		?>
 
 		<?php

@@ -176,3 +176,16 @@ function bitchin_scripts(){
 	//  })
 	// wp_enqueue_script();
 }
+
+function bitchin_comments_number($num,$zer,$one,$many){
+	if($num == 0){
+		echo $zer;
+	}elseif($num == 1){
+		echo $one;
+	}else{
+		echo $num.$many;
+	}
+}
+
+
+if ( ! isset( $content_width ) ) $content_width = null;

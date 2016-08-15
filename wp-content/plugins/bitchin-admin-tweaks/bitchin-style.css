@@ -1,0 +1,62 @@
+body{
+	background: #FFF;
+}
+
+.login h1 a{
+	background-image: url(mlogo.svg);
+	background-position: center center;
+	position: relative;
+	width: 100px;
+	height: 100px;
+}
+
+.login h1 a:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	content:"";
+	position:absolute;
+	top:0;
+	bottom:0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background-size: auto;
+	display: block;
+	border: 3px solid #9b2834;
+	width: 90px;
+	border-radius: 50%;
+	height: 90px;
+}
+
+form{
+	border: 3px solid #9b2834;
+	color: black;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+input[type=text], input[type=search], input[type=radio], input[type=tel], input[type=time], input[type=url], input[type=week], input[type=password], input[type=checkbox], input[type=color], input[type=date], input[type=datetime], input[type=datetime-local], input[type=email], input[type=month], input[type=number], select, textarea {
+	box-shadow: none;
+	border: 1px solid #9b2834;
+	}
+
+	.login #wp-submit{
+		background-color: #9b2834;
+		border: 5px solid #9b2834;
+		line-height: 40px;
+		padding: 0 16px;
+		height: 50px;
+		box-shadow: none;
+		text-shadow: none;
+		text-transform: uppercase;
+		float: none;
+		width: 100%;
+		margin: 1em 0 0 0;
+		display: inline-block;
+	}
+
+	.login #wp-submit:hover{
+		background-color: #982530;
+
+	}

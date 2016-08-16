@@ -33,7 +33,7 @@ $pings_count = count($pings_by_type['comment']);
 		<h2><?php echo $pings_count; ?>Ping</a>
 		<ol>
 			<?php wp_list_comments(array(
-			'type'=>'comment')
+			'type'=>'pings')
 			) ?>
 		</ol>
 

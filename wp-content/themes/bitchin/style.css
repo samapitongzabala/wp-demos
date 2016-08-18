@@ -242,6 +242,10 @@ img{
 	height: auto;
 }
 
+.container{
+	word-wrap: break-word;
+}
+
 #header,
 #footer,
 #content,
@@ -260,9 +264,23 @@ img{
 	color: #FFF;
 }
 
-.wp-post-image{
+ul.productlist li{
 	float: left;
-	margin-right: 1em;
+	width: 25%;
+	padding: 1em;
+	list-style: none;
+	text-align: center;
+}
+
+ul.productlist li h3{
+	font-size: 1.5em;
+}
+
+aside ul.productlist li{
+	border-bottom: 1px solid #333;
+	text-align: left;
+	float: none;
+	width: 100%;
 }
 
  .wp-caption ,

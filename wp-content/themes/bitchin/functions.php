@@ -189,3 +189,48 @@ function bitchin_comments_number($num,$zer,$one,$many){
 
 
 if ( ! isset( $content_width ) ) $content_width = null;
+
+function bitchin_new_products($amount){
+//custom shet
+$product_query = new WP_Query(array(
+	'post_type'	=> 'product',
+	'posts_per_page'	=> $amount,
+
+	));
+
+if($product_query->have_posts()){
+	?>
+	
+	<section class="featured-products">
+		<h2>Newest</h2>
+		<?php
+		while($product_query->have_posts()){
+			$product_query->the_post();
+		 ?>
+			<ul class="productlist">
+				<li>
+					<a href="<?php the_permalink() ?>">
+					<?php the_post_thumbnail('thumbnail'); ?>
+						<h3><?php the_title() ?></h3>
+						<div><?php 
+						echo get_post_meta(get_the_id(),'price',true) ?></div>
+					</a>
+				</li>
+			</ul>
+		<?php
+		}
+		?>
+	</section>
+<?php
+}
+
+wp_reset_postdata();
+}
+
+//to alter shit
+add_action('pre_get_posts','bitchin_blog_no_cat');
+function bitchin_blog_no_cat($q){
+	if(is_search()){
+		$q->set('category__not_in',array(1));
+	}
+}

@@ -35,6 +35,9 @@
 			<p> wala</p>
 		<?php } ?>	
 
+		<?php 
+		bitchin_new_products(5);
+		 ?>
 		
 		<?php get_template_part('section','homewidgets'); ?>
 

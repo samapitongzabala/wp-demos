@@ -234,3 +234,8 @@ function bitchin_blog_no_cat($q){
 		$q->set('category__not_in',array(1));
 	}
 }
+
+//cdn
+//
+//wp_deregister_script ('jquery')
+//register like a regular script

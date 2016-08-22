@@ -3,6 +3,15 @@
 		<?php if(have_posts()){ 
 			while(have_posts()){
 				the_post();
+			
+			if(function_exists('rad_slider')){
+				rad_slider();
+
+			}else{
+				the_post_thumbnail('banner');
+			}
+
+
 			?>
 				<article id="<?php the_id(); ?>" <?php post_class(); ?>>
 					<h2 class="entry-title"> 

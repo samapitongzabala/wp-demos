@@ -235,7 +235,151 @@ function bitchin_blog_no_cat($q){
 	}
 }
 
+function bitchin_contrast_color($hexcolor){
+	$r = hexdec(substr($hexcolor,0,2));
+	$g = hexdec(substr($hexcolor,2,2));
+	$b = hexdec(substr($hexcolor,4,2));
+	$yiq = (($r*299)+($g*587)+($b*114))/1000;
+	return ($yiq >= 128) ? 'black' : 'white';
+}
+
 //cdn
 //
 //wp_deregister_script ('jquery')
 //register like a regular script
+//
+
+/**
+ * theme customizers
+ * 1. Custom Color
+ * 2.  Choose Which side
+ * 3. Accent Color
+ */
+
+// SETTINGS 1
+	add_action('customize_register','bitchin_customizer');
+	function bitchin_customizer($wp_customize){
+		//register setting
+		$wp_customize->add_setting( 
+			'bitchin_container_color',
+			array(
+				'default'	=> '#FFF'
+			));
+
+		//add control
+		$wp_customize->add_control(new WP_Customize_Color_Control(
+			$wp_customize,
+			'bitchin_color_container_ui',
+				array(
+					'label' 	=> 'Container Color',
+					'section'	=> 'colors',
+					'settings'	=> 'bitchin_container_color'
+					)
+			));
+
+		$wp_customize->add_setting('bitchin_link_color',array('default'=> 'crimson'));
+		$wp_customize->add_control(new WP_Customize_Color_Control(
+				$wp_customize,
+				'bitchin_link_color_ui',
+				array(
+					'label'		=> 'Link shit',
+					'section'	=> 'colors',
+					'settings'	=> 'bitchin_link_color'
+					)
+			));
+
+		$wp_customize->add_section('bitchin_other_shit',array(
+			'title'	=> 'Design Shiet',
+			'priority'	=> 30));
+
+		$wp_customize->add_setting(
+			'bitchin_sidebar_position',
+			array(
+				'default' => 'right'
+			));
+
+		$wp_customize->add_control(new WP_Customize_Control(
+			$wp_customize,
+			'bitchin_sidebar_position',
+			array(
+				'label'	=> 'Sidebar Position',
+				'section'	=> 'bitchin_other_shit',
+				'settings'	=> 'bitchin_sidebar_position',
+				'type'	=> 'radio',
+				'choices'	=> array(
+					'left'	=>'Left Side',//code friendly to person friendly
+
+					'right'	=>'Right Side',
+					)
+				)
+			));
+
+		$wp_customize->add_setting('bitchin_font',array('default' =>'Baloo Chettan'));
+
+		$wp_customize->add_control(new WP_Customize_Control(
+			$wp_customize,
+			'bitchin_font_ui',
+			array(
+				'label'	=> 'Heading Shiet',
+				'section'	=> 'bitchin_other_shit',
+				'settings'	=> 'bitchin_font',
+				'type'		=> 'select',
+				'choices'	=> array(
+					'Baloo Chettan'	=> 'Baloo Chettan',
+					'Fjalla One'	=> 'Fjalla',
+					'Montserrat'	=> 'Montserrat',
+					'Playfair Display'	=> 'Playfair'
+
+					)
+				)
+			));
+			
+	}
+
+	//embed
+	//
+	add_action('wp_enqueue_scripts','bitchin_google_font');
+	function bitchin_google_font(){
+		$font = str_replace(' ','+',get_theme_mod('bitchin_font'));
+		$url = 'http://fonts.googleapis.com/css?family='.$font;
+		wp_enqueue_style('googlefont',$url);
+	}
+	add_action('wp_head','bitchin_custom_css');
+	function bitchin_custom_css(){
+		?>
+		<style>
+		#content{
+			background-color: <?php echo get_theme_mod('bitchin_container_color'); ?>;
+		}
+
+		h1,h2,h3,h4,h5{
+			font-family: '<?php echo get_theme_mod('bitchin_font') ?>',Georgia,serif;
+		}
+
+		a{
+			color: <?php echo get_theme_mod('bitchin_link_color') ?>;
+		}
+
+		input[type="submit"],button{
+			background: <?php echo get_theme_mod('bitchin_link_color') ?>!important;
+			color: <?php echo bitchin_contrast_color(get_theme_mod('bitchin_link_color')) ?>!important;
+		}
+		@media only screen and (min-width: 600px){
+			<?php if(get_theme_mod('bitchin_sidebar_position') == 'left'){
+				?>
+				#content{
+					float: right;
+					order:3;
+				}
+
+				#sidebar{
+					float: left;
+					order:2;
+				}
+				<?php
+			}
+			?>
+		}
+		</style>
+		<?php
+	}

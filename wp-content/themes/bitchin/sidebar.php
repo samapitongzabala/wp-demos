@@ -1,9 +1,6 @@
 <aside id="sidebar">
 	<?php
 
-		bitchin_new_products(4);
-		
-		dynamic_sidebar('blog_sidebar');
 
 		if(!dynamic_sidebar('blog_sidebar')){
 				wp_nav_menu(array(

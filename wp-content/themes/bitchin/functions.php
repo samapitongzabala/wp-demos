@@ -383,3 +383,67 @@ function bitchin_contrast_color($hexcolor){
 		</style>
 		<?php
 	}
+
+	add_action('widgets_init','the_bitchin_widget');
+	function the_bitchin_widget(){
+		register_widget('Bitchin_Widget');
+	}
+
+	class Bitchin_Widget extends WP_Widget{
+
+		function __construct(){
+			$widget_ops = array(
+				'class_name' => 'bitchin_widget',
+				'description'	=> 'Basic bitch'
+				);
+			parent:: __construct('bitchin_widget','Bitchin Widget',$widget_ops);//gawa id
+		}
+		//args is arguments for registered sidebar tapos instance ung current settings
+		function widget($args,$instance){
+			//extract args from abooove
+			extract($args);
+			echo $before_widget;
+
+			$title = apply_filters('widget_title',$instance['title']);
+
+			if($title){
+				echo $before_title.$title.$after_title;
+			}
+
+			//THE GUTS
+			bitchin_new_products($instance['num']);
+
+			echo $after_widget;
+		}
+
+		function form($instance){
+			//setup defaults
+			//
+			$defaults = array(
+				'title'	=> 'IMMA BOSS ASS BITCH',
+				'num'	=> 5
+
+				);
+
+			$instance = wp_parse_args( (array) $instance, $defaults );
+			?>
+			<p>
+				<label for="<?php echo $this->get_field_id('title'); ?>">Da Title</label>
+				<input type="text" name="<?php echo $this->get_field_name('title'); ?>" id="<?php echo $this->get_field_id('title'); ?>" value="<?php echo $instance['title'] ?>">
+			</p>
+			<p>
+				<input type="number" name="<?php echo $this->get_field_name('num'); ?>" id="<?php echo $this->get_field_id('num'); ?>" value="<?php echo $instance['num'] ?>" class="tiny-text">
+			</p>
+			<?php
+			
+		}
+
+		function update($new_instance,$old_instance){//i think she passed it here with different names idk
+			//sanitize all dat shiet
+			//
+			$instance['title'] = wp_filter_nohtml_kses($new_instance['title'] );
+			$instance['num'] = wp_filter_nohtml_kses($new_instance['num'] );
+			return $instance;
+		}
+
+	}

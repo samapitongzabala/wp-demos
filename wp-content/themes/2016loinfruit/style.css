@@ -1,0 +1,19 @@
+/*
+Template Name: 2016 Loin Fruit
+Template: twentysixteen
+Description: hit wrecked son;
+*/
+
+
+body{
+	background-color: orchid;
+	font-family: 'Bajoo Paaji';
+}
+
+@media screen and(min-width: 550px){
+	.footer-widgets .widget{
+		outline: 1px solid black;
+		width: 46%;
+		float: left;
+	}
+}

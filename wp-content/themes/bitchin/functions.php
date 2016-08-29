@@ -432,6 +432,7 @@ function bitchin_contrast_color($hexcolor){
 				<input type="text" name="<?php echo $this->get_field_name('title'); ?>" id="<?php echo $this->get_field_id('title'); ?>" value="<?php echo $instance['title'] ?>">
 			</p>
 			<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>">How Many Fucks To Give</label>
 				<input type="number" name="<?php echo $this->get_field_name('num'); ?>" id="<?php echo $this->get_field_id('num'); ?>" value="<?php echo $instance['num'] ?>" class="tiny-text">
 			</p>
 			<?php
